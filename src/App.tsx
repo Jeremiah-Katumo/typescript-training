@@ -1,24 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import { Greet } from './components/props/Greet';
+import { Heading } from './components/props/Heading';
+import { Oscar } from './components/props/Oscar';
+import { Person } from './components/props/Person';
+import { PersonList } from './components/props/PersonList';
+import { Status } from './components/props/Status';
+import { Button } from './components/props/Button';
+import { Input } from './components/props/Input';
 
 function App() {
+
+  const personName = {
+    firstName: 'John',
+    lastName: 'Doe'
+  }
+
+  const nameList = [
+    {
+      firstName: 'John',
+      lastName: 'Doe'
+    },
+    {
+      firstName: 'Jane',
+      lastName: 'Doe'
+    },
+    {
+      firstName: 'Son',
+      lastName: 'Doe'
+    }
+  ]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Heading>Placeholder text</Heading>
+      <Oscar>
+        <Heading>Oscar goes to Lupita Ngonyo</Heading>
+      </Oscar>
+      <Greet name={'Home'} isLoggedIn={false} />
+      <Person name={personName} />
+      <PersonList names={nameList} />
+      <Status status={'success'} />
+      <Button 
+        handleClick={(event, id) => {
+          console.log('Button clicked', event, id)
+        }}
+      />
+      <Input value='' handleChange={(event) => console.log(event)} />
     </div>
   );
 }
