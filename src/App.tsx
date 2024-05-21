@@ -8,6 +8,7 @@ import { PersonList } from './components/props/PersonList';
 import { Status } from './components/props/Status';
 import { Button } from './components/props/Button';
 import { Input } from './components/props/Input';
+import { Container } from 'react-bootstrap';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
         }}
       />
       <Input value='' handleChange={(event) => console.log(event)} />
+      <Container style={{ border: '1px solid black', padding: '1rem' }} />
     </div>
   );
 }
