@@ -24,8 +24,8 @@ export const UserC = () => {
         <div>
             <button onClick={handleLogin}>Login</button>
             <button onClick={handleLogout}>Logout</button>
-            <div>Your username is: </div>
-            <div>Your email is:</div>
+            <div>Your name is: {userContext?.user?.name}</div>
+            <div>Your email is: {userContext?.user?.email}</div>
         </div>
     )
 }
