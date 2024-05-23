@@ -11,6 +11,8 @@ import { Input } from './components/props/Input';
 import { Container } from 'react-bootstrap';
 import { User } from './components/state/User';
 import { Counter } from './components/state/Counter';
+import { ThemeContextProvider } from './components/context/ThemeContext';
+import { Box } from './components/context/Box';
 
 function App() {
 
@@ -53,6 +55,9 @@ function App() {
       <Container style={{ border: '1px solid black', padding: '1rem' }} /> {/* You can add more styles as you please */}
       <User />
       <Counter />
+      <ThemeContextProvider>
+        <Box />
+      </ThemeContextProvider>
     </div>
   );
 }
