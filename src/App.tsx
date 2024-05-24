@@ -17,6 +17,9 @@ import { UserContextProvider } from './components/context/UserContext';
 import { UserC } from './components/context/UserC';
 import { DomeRef } from './components/ref/DomRef';
 import { MutableRef } from './components/ref/MutableRef';
+import { Counter as ClassCounter } from './components/class/Counter';
+import { Private } from './components/auth/Private'
+import { Profile } from './components/auth/Profile'
 
 function App() {
 
@@ -67,6 +70,8 @@ function App() {
       </UserContextProvider>
       <div><DomeRef /></div>
       <div><MutableRef /></div>
+      <ClassCounter message='The count value is:'/>
+      <Private isLoggedIn={true} component={Profile} />
     </div>
   );
 }

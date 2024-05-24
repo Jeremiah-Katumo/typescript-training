@@ -1,5 +1,5 @@
 
-type ProfileProps = {
+export type ProfileProps = {
     name: string
 }
 
