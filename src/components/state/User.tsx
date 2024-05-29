@@ -18,7 +18,10 @@ export const User = () => {
     }
 
     const handleLogout = () => {
-        
+        setUser({
+            name: 'Logged out',
+            email: 'Login'
+        })
     }
 
     return (
