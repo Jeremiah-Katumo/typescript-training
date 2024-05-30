@@ -102,7 +102,7 @@ function App() {
           onClick={item => console.log(item)}
         />
         <RandomNumber value={10} isPositive />
-        <Toast position={'center'} />
+        <Toast position={'right-top'} />
       </div>
     </div>
   );
