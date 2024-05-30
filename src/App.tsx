@@ -20,6 +20,7 @@ import { MutableRef } from './components/ref/MutableRef';
 import { Counter as ClassCounter } from './components/class/Counter';
 import { Private } from './components/auth/Private'
 import { Profile } from './components/auth/Profile'
+import { List } from './components/generics/List';
 
 function App() {
 
@@ -72,6 +73,12 @@ function App() {
       <div><MutableRef /></div>
       <ClassCounter message='The count value is:'/>
       <Private isLoggedIn={true} component={Profile} />
+      <div className='list'>
+        <List 
+          items={['Batman', 'Aquaman', 'Spiderman']}
+          onClick={(item) => console.log(item)}
+        />
+      </div>
     </div>
   );
 }
