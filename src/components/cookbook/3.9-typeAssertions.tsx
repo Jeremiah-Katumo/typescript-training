@@ -18,6 +18,7 @@ function createPerson(name: string) {
     // Where's profession
     return person
 }
+createPerson("Amnon")
 
 // In situations like this, it’s better to opt for a safe object creation.
 type PersonTwo = {
@@ -32,6 +33,7 @@ function createDemoPerson(name: string) {
     }
     return person
 }
+createDemoPerson("Caleb")
 
 
 // When we use the fetch API, for example, getting JSON data from a backend, 
