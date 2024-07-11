@@ -47,7 +47,7 @@ function App() {
       lastName: 'Doe'
     }
   ]
-
+ 
   return (
     <div className="App">
       <Heading>Placeholder text</Heading>
