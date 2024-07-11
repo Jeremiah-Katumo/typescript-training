@@ -1,4 +1,11 @@
 
+// Problem: Your discriminated union types change over time, adding new parts to the union. 
+// It becomes difficult to track all occurrences in your code where you need to 
+// adapt to these changes.
+
+// Solution: Create exhaustiveness checks where you assert that all remaining cases 
+// can never happen with an assertNever function.
+
 type Circle = {
     radius: number
     kind: "circle"

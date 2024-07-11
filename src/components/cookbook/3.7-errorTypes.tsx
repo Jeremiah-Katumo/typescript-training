@@ -29,7 +29,7 @@ somePromise()
 
 // It becomes clearer if you call the same Promise in an async/await flow:
 try {
-    const z = await somePromise();
+    const z = async () => await somePromise();
 } catch(e) {
     console.log(e)
 }
