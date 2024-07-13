@@ -25,7 +25,8 @@ function loadLanguage(
     lang: string
 ) {
     if (isLanguageAvailable(collection, lang)) {
-        collection[lang]
+        const a = collection[lang]
+        return a
     }
 }
 
@@ -50,7 +51,8 @@ function selectElement(
 ) { 
     if (isElementAllowed(collection, elem)) { 
         // elem is keyof AllowedElements 
-        collection[elem]; // access ok
+        const a = collection[elem]; // access ok
+        return a
     } 
 }
 
@@ -70,7 +72,8 @@ function loadLanguageTwo(
 ) { 
     if (isAvailable(collection, lang)) { 
         // lang is keyof Languages 
-        collection[lang]; // access ok!
+        const b = collection[lang]; // access ok!
+        return b
     } 
 }
 function selectElementTwo(
@@ -79,6 +82,7 @@ function selectElementTwo(
 ) { 
     if (isAvailable(collection, elem)) { 
         // elem is keyof AllowedElements 
-        collection[elem]; // access ok
+        const c = collection[elem]; // access ok
+        return c
     } 
 }
