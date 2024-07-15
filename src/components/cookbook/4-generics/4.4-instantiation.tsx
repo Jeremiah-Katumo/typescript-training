@@ -1,4 +1,6 @@
 
+// Understanding Generic Instantiation
+
 // Problem: You understand how generics are substituted for real types, but 
 // sometimes errors like “Foo is assignable to the constraint of type Bar, 
 // but could be instantiated with a different subtype of constraint Baz” 
