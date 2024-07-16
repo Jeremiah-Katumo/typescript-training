@@ -21,20 +21,21 @@ const de = fetchFile(languagestwo, 'de')
 console.log(de)
 // const it = fetchFile(languages, 'it')
 
-// function fetchFiles<List extends URLList>(urls: List, keys: (keyof List)[]) {
-//     const els = keys.map((el) => 
-//         fetch(urls[el])
-//             .then((res) => res.json())
-//             .then((data) => {
-//                 const entry: [keyof List, any] = [el, data]
-//                 return entry
-//             })
-//     )
-//     return els
-// }
-// const de_and_fr = fetchFiles(languagestwo, ["de", "fr"])
-// console.log(de_and_fr)
-function fetchFiles<List extends URLList, Keys extends keyof List>(
+function fetchFiles<List extends URLList>(urls: List, keys: (keyof List)[]) {
+    const els = keys.map((el) => 
+        fetch(urls[el])
+            .then((res) => res.json())
+            .then((data) => {
+                const entry: [keyof List, any] = [el, data]
+                return entry
+            })
+    )
+    return els
+}
+const de_and_fr = fetchFiles(languagestwo, ["de", "fr"])
+console.log(de_and_fr)
+
+function fetchFiles2<List extends URLList, Keys extends keyof List>(
     urls: List, 
     keys: Keys[]
 ) {
@@ -48,5 +49,5 @@ function fetchFiles<List extends URLList, Keys extends keyof List>(
     )
     return els
 }
-const de_and_ja = fetchFiles<Languages, "ja" | "de">(languagestwo, ["de"])
+const de_and_ja = fetchFiles2<Languages, "ja" | "de">(languagestwo, ["de"])
 console.log(de_and_ja)
