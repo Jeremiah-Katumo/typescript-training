@@ -86,14 +86,14 @@ type GroupedToys3 = {
 }
 
 
-type GroupedToys4 = Group<Toy, "kind">
+type GroupedToys4 = Group2<Toy, "kind">
 
 // type Group<Collection, Selector extends keyof Collection> = {
 //     [x in Collection[Selector]]?: Collection[]
 // }
 
 // This type is built-in!
-type Record<K extends string | number | symbol, T> = {
+type Record1<K extends string | number | symbol, T> = {
     [P in K]: T
 }
 // First option
@@ -110,6 +110,6 @@ type Group3<Collection, Selector extends keyof Collection> = {
         : never]?: Collection[]
 }
 // This type is buil-in!
-type Partial<T> = { [P in keyof T]?: T[P] }
+type Partial1<T> = { [P in keyof T]?: T[P] }
 
-type GroupedToys5 = Partial<Group3<Toy, "kind">>
+type GroupedToys5 = Partial1<Group3<Toy, "kind">>
