@@ -9,6 +9,9 @@ const a = createElement("a", { href: 'https://youtube.com' }) // HTMLAnchorEleme
 const b = createElement("video", { src: "/advert.mp4", autoplay: true }) // HTMLVideoElement
 const c = createElement("my-element") // HTMLElement
 
+// A good way to provide a mapping between element tag names and prototype objects 
+// is to use a type map. A type map is a technique where you take a type alias or 
+// interface and let keys point to the respective type variants.
 type AllElements = {
     a: HTMLAnchorElement
     div: HTMLDivElement
