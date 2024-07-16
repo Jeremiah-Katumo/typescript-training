@@ -21,7 +21,9 @@ type A = AllElements["a"]
 type AandDiv = AllElements["a" | "div"]
 console.log(a, b, c)
 
-
+// Let’s use this map to type the createElement function. We use a generic type 
+// parameter constrained to all keys of AllElements, which allows us to pass only 
+// valid HTML elements:
 function createElementFn<T extends keyof AllElements>(tag: T): AllElements[T] {
     return document.createElement(tag as string) as AllElements[T]
 }
