@@ -109,7 +109,7 @@ type Group3<Collection, Selector extends keyof Collection> = {
         ? Collection[Selector]
         : never]?: Collection[]
 }
-// This type is buil-in!
+// This type is built-in!
 type Partial1<T> = { [P in keyof T]?: T[P] }
 
 type GroupedToys5 = Partial1<Group3<Toy, "kind">>
