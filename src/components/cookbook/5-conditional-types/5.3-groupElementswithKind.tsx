@@ -9,29 +9,25 @@ type ToyBase1 = {
     minimumAge: number
 }
 
-type BoardGame1 = ToyBase & {
+type BoardGame1 = ToyBase1 & {
     kind: "boardgame"
     players: number
 }
 
-type Puzzle1 = ToyBase & {
+type Puzzle1 = ToyBase1 & {
     kind: "puzzle"
     pieces: number
 }
 
-type Doll1 = ToyBase & {
+type Doll1 = ToyBase1 & {
     kind: "doll"
     material: "plush" | "plastic"
 }
 
 type Toy1 = BoardGame1 | Puzzle1 | Doll1
 
-type GroupedToysOne = {
-    boardgame?: BoardGame1[] | undefined
-    puzzle?: Puzzle1[] | undefined
-    doll?: Doll1[] | undefined
-}
-
+// Thanks to generics, we were able to define a helper type Group<Collection, Selector> 
+// to reuse the same pattern for different scenarios:
 type Group<
     Collection extends Record<string, any>,
     Selector extends keyof Collection
@@ -39,7 +35,19 @@ type Group<
     [K in Collection[Selector]]: Collection[]
 }
 
+// We then found a way to derive another type called GroupedToys from Toy, where we 
+// take the union type members of the kind property as property keys for a mapped type, 
+// where each property is of type Toy[]:
 
+type GroupedToysOne = {
+    boardgame?: BoardGame1[] | undefined
+    puzzle?: Puzzle1[] | undefined
+    doll?: Doll1[] | undefined
+}
+
+// We can achieve this type by extracting the respective member from the Collection union 
+// type. Thankfully, there is a helper type for that: Extract<T, U>, where T is the 
+// collection, U is part of T. Extract<T, U> is defined as:
 // type Extract<T, U> = T extends U ? T : never
 type ExtractDoll = Extract<Toy1, { kind: "doll" }>
 
@@ -50,11 +58,12 @@ type ExtractDoll2 =
     | Puzzle extends { kind: "doll" } ? Puzzle : never
     | Doll extends { kind: "doll" } ? Doll : never
 
+// In a union with never, never just disappears. So the resulting type is Doll:
 // type ExtractedDoll = never | never | Doll
 type ExtractedDoll = Doll
 
-// So the generic version of Extract<Toy, { kind: "doll" }> 
-// within Group<Collec tion, Selector> is this:
+// So the generic version of Extract<Toy, { kind: "doll" }> within 
+// Group<Collection, Selector> is this:
 type GroupTwo<
     Collection extends Record<string, any>,
     Selector extends keyof Collection
