@@ -75,7 +75,7 @@ function createLabel2<T extends number | string | StringLabel | NumberLabel>(
 }
 createLabel2(1500)
 
-
+// Final of function overload
 function createLabel3<T extends number | string | StringLabel | NumberLabel>(
     input: T
 ): GetLabel<T>
