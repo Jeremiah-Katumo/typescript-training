@@ -105,7 +105,7 @@ type Group2<
 }
 // Second option
 type Group3<Collection, Selector extends keyof Collection> = {
-    [k in Collection[Selector] extends string
+    [K in Collection[Selector] extends string
         ? Collection[Selector]
         : never]?: Collection[]
 }

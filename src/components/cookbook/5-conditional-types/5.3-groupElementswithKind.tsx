@@ -112,7 +112,6 @@ function groupToysFour(toys: Toy[]): GroupedToysOne {
     }
     return groups
 }
-
 function assign<T extends Record<string, K[]>, K>(
     groups: T,
     key: keyof T,

@@ -46,6 +46,7 @@ function add(x: unknown, y: unknown): number {
     assertNumber(y)
     return x + y
 }
+add(1, 1)
 
 
 function checker<T>(obj: T): asserts obj is T & { checked: true } {
