@@ -64,6 +64,9 @@ const safeAccessCollection = new Proxy(myCollection, {
         return undefined
     }
 })
+// This works great in JavaScript, but our types don’t match anymore. The return 
+// type of the Proxy constructor is ElementList again, which means that the number 
+// index access is still intact:
 safeAccessCollection[0].classList.toggle("toggle-on")
 
 // We need to tell TypeScript that we are now dealing with an object with 
